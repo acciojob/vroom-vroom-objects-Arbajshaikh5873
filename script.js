@@ -8,14 +8,16 @@ Car.prototype.getMakeModel = function () {
 };
 
 function SportsCar(make, model, topSpeed) {
-    Car.call(this, make, model); // Proper inheritance
+    // ✅ Correct parent constructor call
+    Car.call(this, make, model);
     this.topSpeed = topSpeed;
 }
 
-// Inherit from Car
+// ✅ Proper inheritance
 SportsCar.prototype = Object.create(Car.prototype);
 SportsCar.prototype.constructor = SportsCar;
 
+// ✅ SportsCar-specific method
 SportsCar.prototype.getTopSpeed = function () {
     return this.topSpeed;
 };
